@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌌 KRYZENVERSE — Mega-ekosistema</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0A0A0F 0%, #1a0a2e 30%, #16213e 60%, #0a1628 100%);
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo-icon {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, #8B5CF6, #EC4899);
+      border-radius: 15px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+    }
+    h1 { font-size: 26px; font-weight: 900; margin: 0; }
+    .version { font-size: 12px; opacity: 0.6; }
+    .time {
+      padding: 8px 16px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 20px;
+      font-size: 13px;
+      color: #10B981;
+    }
+    .github-btn {
+      padding: 10px 20px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    .hero { text-align: center; margin-bottom: 80px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 20px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 30px;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+    .pulse {
+      width: 8px; height: 8px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10B981;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    h2 {
+      font-size: clamp(40px, 8vw, 88px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+    .gradient {
+      background: linear-gradient(90deg, #8B5CF6 0%, #EC4899 50%, #06B6D4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: clamp(16px, 2.5vw, 22px);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 18px 40px;
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(90deg, #8B5CF6 0%, #EC4899 100%);
+      color: white;
+      box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    h3 {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .module {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 30px;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .module:hover {
+      transform: translateY(-8px);
+      border-color: var(--color);
+      box-shadow: 0 20px 60px var(--shadow);
+    }
+    .module::after {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 100px; height: 100px;
+      background: radial-gradient(circle, var(--shadow), transparent 70%);
+      border-radius: 50%;
+    }
+    .module-icon { font-size: 44px; margin-bottom: 15px; }
+    .module-title {
+      margin: 0 0 8px 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color);
+    }
+    .module-desc { margin: 0; opacity: 0.7; font-size: 14px; line-height: 1.5; }
+    .tech-section {
+      margin-top: 100px;
+      padding: 60px 40px;
+      background: rgba(139, 92, 246, 0.05);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 30px;
+      text-align: center;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 900px;
+      margin: 30px auto 0;
+    }
+    .tech-item {
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    footer {
+      margin-top: 80px;
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-title { font-size: 16px; opacity: 0.8; margin: 0 0 10px 0; }
+    .footer-sub { font-size: 13px; opacity: 0.5; margin: 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🌌</div>
+      <div>
+        <h1>KRYZENVERSE</h1>
+        <p class="version">v1.0.0 • live</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+      <div class="time" id="time">● --:--:--</div>
+      <a href="https://github.com/KRYZENSYS/kryzenverse" target="_blank" class="github-btn">GitHub ⭐</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="badge">
+        <span class="pulse"></span>
+        Live • Mega-ekosistema
+      </div>
+      <h2>
+        Barcha loyihalaringiz<br>
+        <span class="gradient">bitta osmonda</span>
+      </h2>
+      <p class="subtitle">
+        14+ modul. Startup, AI, Games, Academy, Match, Marketplace, Mobile, Bot. Hammasi bitta ekosistema — o'zbek tilida, bepul, ochiq kod.
+      </p>
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="clickCounter()">Bosildi: <span id="counter">0</span> 🚀</button>
+        <button class="btn btn-secondary" onclick="showAlert()">Test tugma 🎉</button>
+      </div>
+    </section>
+
+    <section>
+      <h3>🌟 14 ta modul</h3>
+      <div class="modules" id="modules"></div>
+    </section>
+
+    <section class="tech-section">
+      <h3>📊 Texnologiyalar</h3>
+      <div class="tech-grid" id="tech"></div>
+    </section>
+
+    <footer>
+      <p class="footer-title">🌌 <strong>KRYZENVERSE</strong> — barcha loyihalaringiz bitta osmonda</p>
+      <p class="footer-sub">© 2026 KRYZENSYS • MIT • GitHub Pages da joylashgan • $0/oy</p>
+    </footer>
+  </main>
+
+  <script>
+    // Vaqt
+    function updateTime() {
+      const d = new Date();
+      document.getElementById('time').textContent = '● ' + d.toLocaleTimeString('uz-UZ');
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    // Counter
+    let count = 0;
+    function clickCounter() {
+      count++;
+      document.getElementById('counter').textContent = count;
+    }
+
+    // Alert
+    function showAlert() {
+      alert('🎉 KRYZENVERSE muvaffaqiyatli ishlayapti!\n\n14 ta modul tayyor!');
+    }
+
+    // Modullar
+    const modules = [
+      { icon: '🚀', name: 'Startup Hub', desc: "O'z startup'ingizni yarating", color: '#8B5CF6' },
+      { icon: '🤖', name: 'AI Hub', desc: '5+ AI model bilan ishlash', color: '#EC4899' },
+      { icon: '🎮', name: 'Games', desc: "50+ o'yin (Telegram)", color: '#06B6D4' },
+      { icon: '🎓', name: 'Academy', desc: 'Video kurslar, sertifikat', color: '#10B981' },
+      { icon: '🛡️', name: 'Cyber', desc: "Kiberxavfsizlik darslari", color: '#F59E0B' },
+      { icon: '💘', name: 'Match', desc: 'Anonim tanishuv', color: '#EF4444' },
+      { icon: '🛒', name: 'Market', desc: "Marketplace, e'lonlar", color: '#84CC16' },
+      { icon: '💼', name: 'Jobs', desc: 'Ish topish', color: '#3B82F6' },
+      { icon: '💰', name: 'Investors', desc: 'Sarmoya izlash', color: '#F59E0B' },
+      { icon: '🕶️', name: 'Social', desc: 'Cyberpunk ijtimoiy tarmoq', color: '#A855F7' },
+      { icon: '📊', name: 'SMM', desc: 'SMM xizmatlari', color: '#EC4899' },
+      { icon: '🔗', name: 'Chain', desc: 'Blockchain, kripto', color: '#06B6D4' },
+      { icon: '📱', name: 'Mobile', desc: 'Android ilova', color: '#10B981' },
+      { icon: '💼', name: 'Portfolio', desc: 'Portfolio builder', color: '#8B5CF6' }
+    ];
+
+    const container = document.getElementById('modules');
+    modules.forEach(m => {
+      const el = document.createElement('div');
+      el.className = 'module';
+      el.style.setProperty('--color', m.color);
+      el.style.setProperty('--shadow', m.color + '40');
+      el.innerHTML = `
+        <div class="module-icon">${m.icon}</div>
+        <h4 class="module-title">${m.name}</h4>
+        <p class="module-desc">${m.desc}</p>
+      `;
+      container.appendChild(el);
+    });
+
+    // Texnologiyalar
+    const techs = ['Next.js', 'TypeScript', 'Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Kotlin', 'Groq AI', 'Telegram', 'WebSocket'];
+    const techContainer = document.getElementById('tech');
+    techs.forEach(t => {
+      const el = document.createElement('div');
+      el.className = 'tech-item';
+      el.textContent = t;
+      techContainer.appendChild(el);
+    });
+  </script>
+</body>
+</html>
