@@ -21,41 +21,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
-        env:
-          NEXT_TELEMETRY_DISABLED: '1'
-
-      - name: Build
-        run: npm run build
-        env:
-          NEXT_TELEMETRY_DISABLED: '1'
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
-      - name: Create 404
-        run: |
-          if [ -d "out" ]; then
-            if [ ! -f "out/404.html" ]; then
-              cp out/index.html out/404.html
-            fi
-            echo "✅ out/ tayyor"
-            ls -la out/
-          else
-            echo "❌ out/ papkasi yo'q!"
-            exit 1
-          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: .
 
   deploy:
     environment:
